@@ -1,0 +1,8 @@
+<nav>
+  <ul>
+    <li *ngFor="let item of items">
+      <a [routerLink]="item.path" [title]="item.label">{{ item.label }}</a>
+      <!-- Cualquier atributo HTML que pongamos entre corchetes ya est'a interpretando que es tipo Angular y, por tanto, podemos asignar su valor a variables como hac'iamos con {} en REACT -->
+    </li>
+  </ul>
+</nav>
