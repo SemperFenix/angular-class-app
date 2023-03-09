@@ -17,7 +17,7 @@ export class AddComponent {
     this.isDisplayForm = false;
     this.newTaskForm = formBuilder.group({
       title: ['Nueva tarea', [Validators.required]], // Esto puede ser un string o un array con el valor por defecto y un array con los validadores
-      owner: [''],
+      owner: ['', [Validators.required]],
     });
   }
 
@@ -29,5 +29,6 @@ export class AddComponent {
       isCompleted: false,
     };
     this.onAdd.next(newTask);
+    this.newTaskForm.reset();
   }
 }

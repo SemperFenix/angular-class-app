@@ -7,11 +7,7 @@
   </button>
 </h3>
 
-<form
-  *ngIf="isDisplayForm"
-  [formGroup]="newTaskForm"
-  (onSubmit)="handleSubmit()"
->
+<form *ngIf="isDisplayForm" [formGroup]="newTaskForm" (submit)="handleSubmit()">
   <div class="form-group">
     <label for=""
       >Title
