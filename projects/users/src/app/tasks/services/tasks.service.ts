@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Task } from '../models/task.model';
 import { getTasks } from './mock.data';
 
@@ -7,9 +7,10 @@ import { getTasks } from './mock.data';
   providedIn: 'root',
 })
 export class TasksService {
-  tasks$: Subject<Task[]>;
+  tasks$: BehaviorSubject<Task[]>;
   constructor() {
-    this.tasks$ = new Subject();
+    const initialTasks: Task[] = [];
+    this.tasks$ = new BehaviorSubject(initialTasks);
     getTasks().then((tasks) => this.tasks$.next(tasks));
   }
 

@@ -16,7 +16,10 @@ export class ListComponent implements OnInit {
   }
   // Esto es el equivalente al useEffect, va a ejecutarse cada vez que se llama al componente
   async ngOnInit(): Promise<void> {
-    this.tasks = this.srv.tasks$.subscribe()
+    this.srv.tasks$.subscribe((data) => {
+      this.tasks = data;
+      console.log(this.tasks);
+    });
     console.log(this.tasks);
   }
   handleDelete(taskId: number) {
